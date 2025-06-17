@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fichas Clínicas</title>
+  <link rel="stylesheet" href="panel.css" />
+</head>
+<body>
+
+  <header class="header">
+    <h1>Fichas Clínicas</h1>
+  </header>
+
+  <main class="fichas container">
+    <button onclick="location.href='/admin.html'" class="back-btn">Volver</button>
+    <button class="add-pet">Agregar ficha</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Mascota</th>
+          <th>Raza</th>
+          <th>Valoraciones</th>
+          <th>Tratamientos</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0001</td>
+          <td>Firulais</td>
+          <td>Golden Retriever</td>
+          <td>Sana, sin anomalías</td>
+          <td>Antiparasitario</td>
+          <td><button>Ver Ficha</button></td>
+        </tr>
+        <tr>
+          <td>0002</td>
+          <td>Pelusa</td>
+          <td>Gato Persa</td>
+          <td>Alergia en la piel</td>
+          <td>Antihistamínico</td>
+          <td><button>Ver Ficha</button></td>
+        </tr>
+        <tr>
+          <td>0003</td>
+          <td>Rex</td>
+          <td>Pastor Alemán</td>
+          <td>Cojera en la pata derecha</td>
+          <td>Analgésico</td>
+          <td><button>Ver Ficha</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+</body>
+</html>

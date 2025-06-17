@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Reserva</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="agendar" class="py-12 px-4 max-w-5xl m-auto">
+  <h2>Agendar hora</h2>
+  <form id="agendar-form" class="bg-gray-50 p-6 rounded-20 shadow-md grid gap-4">
+    <h3>Tipo de servicio</h3>
+    <label>
+      <input type="radio" name="tipo-servicio" value="domicilio" id="domicilioRadio" required>
+      Domicilio
+    </label>
+    <label>
+      <input type="radio" name="tipo-servicio" value="clinica">
+      En la clínica
+    </label>
+
+    <h3>Datos del Dueño</h3>
+    <input type="text" name="dueño" placeholder="Nombre del Dueño" required>
+    <input type="tel" name="telefono" placeholder="Teléfono de Contacto" required>
+    <input type="email" name="email" placeholder="Correo Electrónico" required>
+
+    <h3>Datos de la Mascota</h3>
+    <input type="text" name="mascota" placeholder="Nombre de la Mascota" required>
+    <input type="text" name="especie" placeholder="Especie (Perro, Gato...)">
+    <input type="text" name="raza" placeholder="Raza">
+    <input type="number" name="edad" placeholder="Edad">
+  
+    <h3>Fecha</h3>
+    <input type="date" name="fecha" required>
+
+    <input id="direccion" name="direccion" placeholder="Dirección (si el servicio es a domicilio)" disabled>
+
+    <button type="submit" class="reserva-btn">Reservar hora</button>
+  </form>
+
+  <!-- Mensaje de Reserva Exitosa -->
+<div id="reserva-exitosa" style="display: none; text-align: center;margin-top: 2rem">
+    <img src="img/exitoso.png" alt="reserva exitosa" style="width: 150px;margin-bottom: 1rem">
+    <h3>¡Reserva exitosa!</h3>
+    <p>Pronto nos pondremos en contacto para confirmar tu hora.</p>
+
+    <a href="index.html" class="reserva-btn">Volver a inicio</a>
+</div>
+
+</section>
+
+<script src="js.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('agendar-form');
+    const exitoso = document.getElementById('reserva-exitosa');
+    const domRadio = document.getElementById('domicilioRadio');
+    const direccion = document.getElementById('direccion');
+    const radios = document.querySelectorAll('input[name=tipo-servicio]');
+
+    // Habilitar o deshabilitar dirección según selección
+    radios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (domRadio.checked) {
+          direccion.disabled = false;
+          direccion.required = true;
+        } else {
+          direccion.disabled = true;
+          direccion.required = false;
+        }
+      });
+    });
+
+    //Mostrar mensaje de Reserva Exitosa
+    form.addEventListener('submit',(e) => {
+      e.preventDefault();
+
+      form.style.display = 'none';
+      exitoso.style.display = 'block';
+    });
+  });
+</script>
+
+</body>
+</html>
